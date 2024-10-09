@@ -1,0 +1,55 @@
+/* ==UserStyle==
+@name           SneshGPT_fonts
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    Fonts for ChatGPT 
+@author         sensha
+@preprocessor 	less 
+==/UserStyle== */
+@-moz-document domain("chatgpt.com") {
+	/* Import fonts */
+	@font-face {
+		font-family: 'CC Wild Words';
+		src: local('c');
+		font-weight: normal;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'CMU Concrete';
+		src: local('c');
+		font-weight: normal;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'Whitney';
+		src: local('c');
+		font-weight: normal;
+		font-style: normal;
+	}
+
+	@font-face {
+		font-family: 'Comic Code';
+		src: local('c');
+		font-weight: normal;
+		font-style: normal;
+	}
+
+
+
+	div.grow.overflow-hidden.text-ellipsis.whitespace-nowrap.text-sm.text-token-text-primary,
+	h3.pb-2.pt-3.px-2.text-xs.font-semibold.text-ellipsis.overflow-hidden.break-all.text-token-text-primary {
+		font-family: 'CC Wild Words', sans-serif !important;
+	}
+
+	code {
+		font-family: 'Comic Code', sans-serif !important;
+	}
+
+	.overflow-y-auto.p-4 {
+		background-color: #00011e !important;
+	}
+
+	code:not(.overflow-y-auto.p-4 code) {
+		background-color: #26285a !important;
+	}
+}
