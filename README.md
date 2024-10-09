@@ -39,11 +39,11 @@ Install the js scripts using whatever people use to manage userscripts. I used [
 
 - Quickreplies: 
 
-[![Static Badge](https://img.shields.io/badge/Install_directly_with-whatever-yellow)](https://github.com/senshastic/sensha-betterer-todoist/raw/refs/heads/main/js/SneshGPT_quickreplies.user.js)
+[![Static Badge](https://img.shields.io/badge/Install_directly_with-whatever-yellow)](https://github.com/senshastic/sneshGPT/raw/refs/heads/main/js/SneshGPT_quickreplies.user.js)
 
 - Sidebar:
 
-[![Static Badge](https://img.shields.io/badge/Install_directly_with-whatever-yellow)](https://github.com/senshastic/sensha-betterer-todoist/raw/refs/heads/main/js/SneshGPT_sidebar.user.js)
+[![Static Badge](https://img.shields.io/badge/Install_directly_with-whatever-yellow)](https://github.com/senshastic/sneshGPT/raw/refs/heads/main/js/SneshGPT_sidebar.user.js)
 
 ### Fonts 
 
@@ -62,5 +62,5 @@ If you don't have them, only the colors of the code blocks will change, which is
 
 ### Credits 
 
-[Fallen](https://github.com/FallenStar08) - I do be loving doing things with you. 
+[Fallen](https://github.com/FallenStar08) - I do be loving - doing things - with you. 
 
