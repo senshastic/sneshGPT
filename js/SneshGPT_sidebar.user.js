@@ -5,6 +5,8 @@
 // @grant       none
 // @version     1.0.0
 // @author      sensha
+// @downloadURL https://github.com/senshastic/sensha-betterer-todoist/raw/refs/heads/main/js/SneshGPT_sidebar.user.js
+// @updateURL   https://github.com/senshastic/sensha-betterer-todoist/raw/refs/heads/main/js/SneshGPT_sidebar.user.js
 // @icon        https://cdn.discordapp.com/emojis/1245456048383459439.webp?size=240&quality=lossless
 // @description Apply acrylic effect and collapsible functionality to ChatGPT sidebar with a persistent, dynamically visible trigger zone and extra styles.
 // ==/UserScript==

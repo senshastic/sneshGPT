@@ -5,6 +5,8 @@
 // @grant       none
 // @version     1.0.0
 // @author      sensha
+// @downloadURL https://github.com/senshastic/sensha-betterer-todoist/raw/refs/heads/main/js/SneshGPT_quickreplies.user.js
+// @updateURL   https://github.com/senshastic/sensha-betterer-todoist/raw/refs/heads/main/js/SneshGPT_quickreplies.user.js
 // @icon        https://cdn.discordapp.com/emojis/1245456048383459439.webp?size=240&quality=lossless
 // @description Offers a set of predetermined customized quik replies.
 // ==/UserScript==

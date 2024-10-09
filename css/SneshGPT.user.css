@@ -5,6 +5,7 @@
 @description    A new userstyle
 @author         sensha
 @preprocessor 	less 
+@updateURL		https://github.com/senshastic/sneshGPT/raw/refs/heads/main/css/SneshGPT.user.css
 @var select		gradType    "Background style" ["animated:Animated*", "flouss: Static", "nouss:None"]
 @var checkbox	grain "Grainy texture" 1
 @var color   	gradcolor1 "Gradient Color 1" rgb(43, 1, 91)

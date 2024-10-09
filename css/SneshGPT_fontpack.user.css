@@ -5,6 +5,7 @@
 @description    Fonts for ChatGPT 
 @author         sensha
 @preprocessor 	less 
+@updateURL		https://github.com/senshastic/sneshGPT/raw/refs/heads/main/css/SneshGPT_fontpack.user.css
 ==/UserStyle== */
 @-moz-document domain("chatgpt.com") {
 	/* Import fonts */
