@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           SneshGPT
 @namespace      github.com/openstyles/stylus
-@version        1.0.0
+@version        1.0.2
 @description    A new userstyle
 @author         sensha
 @preprocessor 	less 
@@ -24,7 +24,7 @@
 	}
 
 
-	div.gizmo-shadow-stroke.relative.flex.h-full.items-center.justify-center.rounded-full.bg-token-main-surface-primary.text-token-text-primary  {
+	div.gizmo-shadow-stroke.relative.flex.h-full.items-center.justify-center.rounded-full.bg-token-main-surface-primary.text-token-text-primary {
 		content: url('https://cdn.discordapp.com/emojis/1245456048383459439.webp?size=240&quality=lossless');
 		width: 30px;
 		height: 30px;
@@ -39,49 +39,49 @@
 		/* Adjust the height as needed */
 	}
 
-	
 
-    main when (@gradType = flouss) {
-            background: linear-gradient(109.6deg,
-            @gradcolor3 0%,
-            @gradcolor4 25%,
-            @gradcolor1 50%,
-            @gradcolor2 100%);
-            margin: 0;
-        }
-		
 
-    main when (@gradType = animated) {
-            background: linear-gradient(109.6deg, @gradcolor3 13.4%, @gradcolor4 25%, @gradcolor1 70%, @gradcolor2 100.2%);
-            background-size: 400% 400%;
-            animation: gradientAnimation 20s ease infinite;
-        }
-		
-		
-    main when (@gradType = nouss) {
-            background-color: @gradcolor3 !important ;
-        }
-	
-	.bg-token-sidebar-surface-primary  when (@gradType = flouss) {
-            background: linear-gradient(109.6deg,
-            @gradcolor3 0%,
-            @gradcolor4 25%,
-            @gradcolor1 50%,
-            @gradcolor2 100%);
-            margin: 0;
-        }
-		
+	main when (@gradType =flouss) {
+		background: linear-gradient(109.6deg,
+		@gradcolor3 0%,
+		@gradcolor4 25%,
+		@gradcolor1 50%,
+		@gradcolor2 100%);
+		margin: 0;
+	}
 
-    .bg-token-sidebar-surface-primary when (@gradType = animated) {
-            background: linear-gradient(109.6deg, @gradcolor3 13.4%, @gradcolor4 25%, @gradcolor1 70%, @gradcolor2 100.2%);
-            background-size: 400% 400%;
-            animation: gradientAnimation 20s ease infinite;
-        }
-		
-		
-    .bg-token-sidebar-surface-primary when (@gradType = nouss) {
-            background-color: @gradcolor3 !important ;
-			}
+
+	main when (@gradType =animated) {
+		background: linear-gradient(109.6deg, @gradcolor3 13.4%, @gradcolor4 25%, @gradcolor1 70%, @gradcolor2 100.2%);
+		background-size: 400% 400%;
+		animation: gradientAnimation 20s ease infinite;
+	}
+
+
+	main when (@gradType =nouss) {
+		background-color: @gradcolor3 !important;
+	}
+
+	.bg-token-sidebar-surface-primary when (@gradType =flouss) {
+		background: linear-gradient(109.6deg,
+		@gradcolor3 0%,
+		@gradcolor4 25%,
+		@gradcolor1 50%,
+		@gradcolor2 100%);
+		margin: 0;
+	}
+
+
+	.bg-token-sidebar-surface-primary when (@gradType =animated) {
+		background: linear-gradient(109.6deg, @gradcolor3 13.4%, @gradcolor4 25%, @gradcolor1 70%, @gradcolor2 100.2%);
+		background-size: 400% 400%;
+		animation: gradientAnimation 20s ease infinite;
+	}
+
+
+	.bg-token-sidebar-surface-primary when (@gradType =nouss) {
+		background-color: @gradcolor3 !important;
+	}
 
 	@keyframes gradientAnimation {
 		0% {
@@ -97,7 +97,7 @@
 
 
 
-	main::before when (@grain = 1) {
+	main::before when (@grain =1) {
 		content: "" !important;
 		position: absolute !important;
 		top: 0 !important;
@@ -308,7 +308,7 @@
 		-webkit-backdrop-filter: blur(100px);
 		transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 	}
-	
+
 
 	.bg-token-sidebar-surface-secondary,
 	.from-token-sidebar-surface-secondary,
@@ -393,5 +393,79 @@
 		-webkit-backdrop-filter: blur(100px);
 		transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 		transform: translateY(-2px);
+	}
+
+	/* sidebar styling */
+	div.flex-shrink-0.overflow-x-hidden.bg-token-sidebar-surface-primary {
+		top: 0;
+		left: 0;
+		width: 260px;
+		height: 100vh;
+		background-color: rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(25px) saturate(200%) contrast(90%);
+		-webkit-backdrop-filter: blur(25px) saturate(200%) contrast(90%);
+		color: white;
+		z-index: 1000;
+		overflow-y: auto;
+		scrollbar-width: none;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+		transform: translateX(0);
+		opacity: 1;
+		pointer-events: auto;
+		padding-bottom: 20px;
+		position: relative;
+	}
+
+
+	div.flex-shrink-0.overflow-x-hidden.bg-token-sidebar-surface-primary::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.1) 100%);
+		backdrop-filter: blur(15px) saturate(180%) contrast(90%);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		/* Top layer border */
+		box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.1);
+		pointer-events: none;
+		z-index: -1;
+	}
+
+
+	.no-draggable.group.relative.rounded-lg:hover {
+		margin-left: 10px !important;
+		transition: margin-left 0.2s ease;
+	}
+
+
+	.specific-bg-token-sidebar,
+	.absolute.bottom-0.top-0.to-transparent.ltr\:right-0.ltr\:bg-gradient-to-l.rtl\:left-0.rtl\:bg-gradient-to-r.from-token-sidebar-surface-primary.from-token-sidebar-surface-primary.can-hover\:group-hover\:from-token-sidebar-surface-secondary.w-8.from-0\%.can-hover\:group-hover\:w-10.can-hover\:group-hover\:from-60\% {
+		position: relative !important;
+		overflow: hidden !important;
+	}
+
+
+	div.flex-shrink-0.overflow-x-hidden.bg-token-sidebar-surface-primary::after {
+		content: 'SneshCorp. @1984. All rights reserved (to FallenStar).';
+		position: absolute;
+		bottom: 10px;
+		left: 15px;
+		font-size: 9px;
+		color: rgba(255, 255, 255, 0.7);
+		z-index: 1000;
+		pointer-events: none;
+	}
+
+
+	div.flex-shrink-0.overflow-x-hidden.bg-token-sidebar-surface-primary::after a {
+		color: rgba(255, 255, 255, 0.7);
+		text-decoration: none;
+	}
+
+	div.flex-shrink-0.overflow-x-hidden.bg-token-sidebar-surface-primary::after a:hover {
+		color: rgba(255, 255, 255, 0.9);
 	}
 }
