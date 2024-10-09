@@ -38,7 +38,7 @@
                 transform: 'translateX(0)',
                 opacity: '1',
                 pointerEvents: 'auto',
-                paddingBottom: '50px',
+                paddingBottom: '25px',
             });
 
             // Second glass effect using ::before pseudo-element (Top layer with border)
