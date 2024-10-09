@@ -3,7 +3,7 @@
 // @namespace   Violentmonkey Scripts
 // @match       https://chatgpt.com/*
 // @grant       none
-// @version     1.0.0
+// @version     1.0.1
 // @author      sensha
 // @downloadURL https://github.com/senshastic/sensha-betterer-todoist/raw/refs/heads/main/js/SneshGPT_sidebar.user.js
 // @updateURL   https://github.com/senshastic/sensha-betterer-todoist/raw/refs/heads/main/js/SneshGPT_sidebar.user.js
