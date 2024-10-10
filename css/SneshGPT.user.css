@@ -18,21 +18,21 @@
 
 
 	.gizmo-bot-avatar {
-		content: url('https://cdn.discordapp.com/emojis/1245456048383459439.webp?size=240&quality=lossless');
+		content: url('https://github.com/senshastic/sneshGPT/blob/main/assets/Hap.png?raw=true');
 		width: 32px;
 		height: 32px;
 	}
 
 
 	div.gizmo-shadow-stroke.relative.flex.h-full.items-center.justify-center.rounded-full.bg-token-main-surface-primary.text-token-text-primary {
-		content: url('https://cdn.discordapp.com/emojis/1245456048383459439.webp?size=240&quality=lossless');
+		content: url('https://github.com/senshastic/sneshGPT/blob/main/assets/Hap.png?raw=true');
 		width: 30px;
 		height: 30px;
 		margin-top: -3px;
 	}
 
 	.rounded-sm {
-		content: url("https://cdn.discordapp.com/attachments/1270101394531024918/1293497469329473567/senshasip_big.png?ex=670796e4&is=67064564&hm=e9cae7c7f1cfe5231bb5dce5a6be7d12994fc00297a913e77a1175879afea579&");
+		content: url("https://github.com/senshastic/sneshGPT/blob/main/assets/senshasip_big.png?raw=true");
 		width: 32px;
 		/* Adjust the width as needed */
 		height: 32px;
