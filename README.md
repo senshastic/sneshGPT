@@ -15,7 +15,7 @@ It also has a pretty acrylic automatically sliding sidebar, which is neat.
 
 ![](assets/SneshGPT_sidebar.gif)
 
-If you do not like the gradient or you are like me and you like changing colors all the time, you can change the colors directly through Stylus' UI. It's pretty neat and instantaneous. I also added a toggle for the grainy texture and the font now comes with three options: 
+If you do not like the gradient or you are like me and you like changing colors all the time, you can change the colors directly through Stylus' UI. It's pretty neat and instantaneous. I also added a toggle for the grainy texture and the background now comes with three options: 
 - Animated gradient (default)
 - Static gradient
 - No gradient
