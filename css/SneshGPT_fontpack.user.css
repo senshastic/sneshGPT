@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           SneshGPT_fonts
 @namespace      github.com/openstyles/stylus
-@version        1.0.2
+@version        1.0.3
 @description    Fonts for ChatGPT 
 @author         sensha
 @preprocessor 	less 
@@ -9,65 +9,55 @@
 @var select		codeFont    "Code Font" ["xenon:Xenon*", "argon: Argon", "neon:Neon", "radon: Radon", "krypton: Krypton", "none: None"]
 @updateURL		https://github.com/senshastic/sneshGPT/raw/refs/heads/main/css/SneshGPT_fontpack.user.css
 ==/UserStyle== */
-
 @-moz-document domain("chatgpt.com") {
 	/* Import fonts */
 	@font-face {
-		font-family: 'CC Wild Words';
 		src: local('CC Wild Words');
 		font-weight: normal;
 		font-style: normal;
 	}
 	@font-face {
-		font-family: 'CMU Concrete';
 		src: local('CMU Concrete');
 		font-weight: normal;
 		font-style: normal;
 	}
 	@font-face {
-		font-family: 'Whitney';
 		src: local('Whitney');
 		font-weight: normal;
 		font-style: normal;
 	}
 
 	@font-face {
-		font-family: 'Comic Code';
 		src: local('Comic Code');
 		font-weight: normal;
 		font-style: normal;
 	}
 	
 	 @font-face {
-	font-family: 'Monaspace Argon';
 	src: local('Monaspace Argon');
 	font-weight: normal;
 	font-style: normal;
 	}
 
 	@font-face {
-		font-family: 'Monaspace Krypton';
 		src: local('Monaspace Krypton');
 		font-weight: normal;
 		font-style: normal;
 	}
 	
 	@font-face {
-		font-family: 'Monaspace Neon';
 		src: local('Monaspace Neon');
 		font-weight: normal;
 		font-style: normal;
 	}
 	
 	@font-face {
-		font-family: 'Monaspace Radon';
 		src: local('Monaspace Radon');
 		font-weight: normal;
 		font-style: normal;
 	}
 	
 	@font-face {
-		font-family: 'Monaspace Xenon';
 		src: local('Monaspace Xenon');
 		font-weight: normal;
 		font-style: normal;
