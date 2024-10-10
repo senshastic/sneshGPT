@@ -35,7 +35,7 @@ Once you have Stylus, you can install it directly clicking here:
 
 [![Install directly with Stylus](https://img.shields.io/badge/Install%20directly%20with-Stylus-238b8b.svg)](https://github.com/senshastic/sneshGPT/raw/refs/heads/main/css/SneshGPT.user.css)
 
-Install the js scripts using whatever people use to manage userscripts. I used [ViolentMonkey](https://violentmonkey.github.io/) because that's what Fallen used. Can be done by clicking here: 
+Install le JS scripts using whatever people use to manage userscripts. I used [ViolentMonkey](https://violentmonkey.github.io/) because that's what Fallen used. Can be done directly once you have the userscript manager installed by clicking here: 
 
 - Quickreplies: 
 
@@ -45,22 +45,31 @@ Install the js scripts using whatever people use to manage userscripts. I used [
 
 [![Static Badge](https://img.shields.io/badge/Install_directly_with-whatever-yellow)](https://github.com/senshastic/sneshGPT/raw/refs/heads/main/js/SneshGPT_sidebar.user.js)
 
-### Fonts 
+I recommend installing at least quickreplies, but the css version works fine without any of the above scripts.
 
-![](assets/SneshGPT_ex.png)
+### Fonts & Styles
 
-I made an add on that changes some of the fonts and colors of the interface. These changes are somewhat minor, but if you'd like to install them, you can find the add-on here: 
+![](assets/SneshGPT_fontex.png)
+
+I made an add-on that lets you change some of the fonts and colors of the interface. You can find the add-on here: 
 
 [![Install directly with Stylus](https://img.shields.io/badge/Install%20directly%20with-Stylus-238b8b.svg)](https://github.com/senshastic/sneshGPT/raw/refs/heads/main/css/SneshGPT_fontpack.user.css)
 
-You must have the following fonts installed on your computer: 
+The add-on uses fonts from the Monaspace project and require you to install them on your computer. They are pretty cool and use fancy words like *Texture Healing*, you should get them. 
 
-- CC Wild Words
-- Comic Code
+[![Static Badge](https://img.shields.io/badge/Directly_download-Monaspace_fonts-C72C48)](https://github.com/githubnext/monaspace/releases/download/v1.101/monaspace-v1.101.zip)
+
+[![Static Badge](https://img.shields.io/badge/Learn_about_Monaspace-C72C48)](https://monaspace.githubnext.com/)
 
 If you don't have them, only the colors of the code blocks will change, which is already pretty nice imo. 
 
+It also uses the following font if installed on your computer: 
+
+- CC Wild Words
+
 ### Credits 
 
-[Fallen](https://github.com/FallenStar08) - I do be loving - doing things - with you. 
+- [Fallen](https://github.com/FallenStar08) - I do be loving - doing things - with you. 
+- Nins - Even though you saw no difference between grainy and not grainy, which is wild. 
 
+![](SneshGPT_fontsoverview.gif) 
