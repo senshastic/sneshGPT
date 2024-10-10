@@ -72,4 +72,4 @@ It also uses the following font if installed on your computer:
 - [Fallen](https://github.com/FallenStar08) - I do be loving - doing things - with you. 
 - Nins - Even though you saw no difference between grainy and not grainy, which is wild. 
 
-![](SneshGPT_fontsoverview.gif) 
+![](assets/SneshGPT_fontsoverview.gif) 
