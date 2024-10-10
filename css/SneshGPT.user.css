@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           SneshGPT
 @namespace      github.com/openstyles/stylus
-@version        1.0.3
+@version        1.0.4
 @description    A new userstyle
 @author         sensha
 @preprocessor 	less 
@@ -117,30 +117,18 @@
 	.group.flex.h-10.items-center.gap-2\.5.rounded-lg.bg-token-sidebar-surface-primary,
 	.group.flex.h-10.items-center.gap-2\.5.rounded-lg.bg-token-sidebar-surface-primary:hover {
 		background-color: rgba(255, 255, 255, 0.1);
-		/* Semi-transparent white background */
 		backdrop-filter: blur(25px) saturate(200%) contrast(90%);
-		/* Acrylic effect: blur, saturation, contrast */
 		-webkit-backdrop-filter: blur(25px) saturate(200%) contrast(90%);
-		/* WebKit support for Safari */
 		color: white;
 		z-index: 1000;
-		/* Place on top */
 		overflow-y: auto;
-		/* Enable vertical scroll */
 		scrollbar-width: none;
-		/* Hide scrollbars in Firefox */
 		border: 1px solid rgba(255, 255, 255, 0.2);
-		/* Light border around the sidebar */
 		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-		/* Subtle shadow for depth */
 		transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
-		/* Smooth transition for sliding and opacity */
 		transform: translateX(0);
-		/* Default position (fully visible) */
 		opacity: 1;
-		/* Fully opaque */
 		pointer-events: auto;
-		/* Allow interaction */
 		border-radius: inherit;
 	}
 
@@ -160,15 +148,12 @@
 		content: 'ChatGPT just like me fr fr: never makes any mistakes.';
 		position: absolute;
 		left: 50%;
-		/* Centers the content horizontally */
 		transform: translateX(-50%);
-		/* Corrects centering */
 		color: #b1adad !important;
 		font-size: inherit;
 		text-align: center;
 		display: block;
 		width: 100%;
-		/* Ensures it takes the full width */
 	}
 
 
