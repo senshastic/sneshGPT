@@ -15,7 +15,7 @@ It also has a pretty acrylic automatically sliding sidebar, which is neat.
 
 ![](assets/SneshGPT_sidebar.gif)
 
-If you do not like the gradient or you are like me and you like changing colors all the time, you can change the colors directly through Stylus' UI. It's pretty neat and instantaneous. I also added a toggle for the grainy texture and the background now comes with three options: 
+If you do not like the gradient or if you are like me and you like changing colors all the time, you can change the colors directly through Stylus' UI. It's pretty neat and instantaneous. I also added a toggle for the grainy texture and the background now comes with three options: 
 - Animated gradient (default)
 - Static gradient
 - No gradient
@@ -55,7 +55,7 @@ I made an add-on that lets you change some of the fonts and colors of the interf
 
 [![Install directly with Stylus](https://img.shields.io/badge/Install%20directly%20with-Stylus-238b8b.svg)](https://github.com/senshastic/sneshGPT/raw/refs/heads/main/css/SneshGPT_fontpack.user.css)
 
-The add-on uses fonts from the Monaspace project and require you to install them on your computer. They are pretty cool and use fancy words like *Texture Healing*, you should get them. 
+The add-on uses fonts from the Monaspace project and requires you to install them on your computer. They are pretty cool and use fancy words like *Texture Healing*, you should get them. 
 
 [![Static Badge](https://img.shields.io/badge/Directly_download-Monaspace_fonts-C72C48)](https://github.com/githubnext/monaspace/releases/download/v1.101/monaspace-v1.101.zip)
 
