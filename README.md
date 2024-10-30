@@ -1,5 +1,9 @@
 # SneshGPT 
 
+
+# UPDATE: OPENAI BROKE MY QUICKREPLY AND I DON'T WANT TO FIX IT UNTIL THEIR WEBSITE IS STABLE. THERE. 
+
+
 ![](assets/SneshGPT_overview.png)
 
 This is the second in a - hopefully short - series of ""design"" projects. 
