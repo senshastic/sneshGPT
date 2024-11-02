@@ -650,4 +650,9 @@ div.flex-shrink-0.overflow-x-hidden.bg-token-sidebar-surface-primary::after a {
 div.flex-shrink-0.overflow-x-hidden.bg-token-sidebar-surface-primary::after a:hover {
 	color: rgba(255, 255, 255, 0.9);
 }
+
+/* Copy code button fix */
+pre>div>div.sticky>div.absolute{
+	border-radius: 12px !important;
+}
 }
