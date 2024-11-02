@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           SneshGPT
 @namespace      github.com/openstyles/stylus
-@version        1.0.7
+@version        1.0.8
 @description    A new userstyle
 @author         sensha
 @preprocessor 	less 
@@ -16,200 +16,202 @@
 @-moz-document domain("chatgpt.com") {
 	
 	/*SECTION [SNESHLIB - Start] */
-/*ANCHOR [VARIABLES]*/
-@hap				: url('https://github.com/senshastic/sneshGPT/blob/main/assets/Hap.png?raw=true');
-@borderRadius		: 12px;
-@creamColor			: #d0b575;
-@creamColorMuted	: #4f4733;
+	/*ANCHOR [VARIABLES]*/
+	@hap				: url('https://github.com/senshastic/sneshGPT/blob/main/assets/Hap.png?raw=true');
+	@borderRadius		: 12px;
+	@creamColor			: #d0b575;
+	@creamColorMuted	: #4f4733;
 
 
 
-/*ANCHOR [DETACHED RULESETS] */
-@gradientBackground: {
-	background: linear-gradient(109.6deg, @gradcolor3 0%, @gradcolor4 25%, @gradcolor1 50%, @gradcolor2 100%);
-}
-
-@gradientAnimation: {
-	0% {
-		background-position: 0% 0%;
+	/*ANCHOR [DETACHED RULESETS] */
+	@gradientBackground: {
+		background: linear-gradient(109.6deg, @gradcolor1 0%, @gradcolor2 25%, @gradcolor3 50%, @gradcolor4 100%);
 	}
-	50% {
-		background-position: 100% 100%;
+
+	@gradientAnimation: {
+		0% {
+			background-position: 0% 0%;
+		}
+		50% {
+			background-position: 100% 100%;
+		}
+		100% {
+			background-position: 0% 0%;
+		}
 	}
-	100% {
-		background-position: 0% 0%;
+
+	@buttons: {
+		background-color: rgba(5, 5, 5, .18) !important;
+		border-radius: 12px !important;
+		box-shadow: 0 8px 15px rgba(0, 0, 0, 0.37);
+		backdrop-filter: blur(100px) saturate(110%);
+		-webkit-backdrop-filter: blur(100px);
+		transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 	}
-}
 
-@buttons: {
-	background-color: rgba(5, 5, 5, .18) !important;
-	border-radius: 12px !important;
-	box-shadow: 0 8px 15px rgba(0, 0, 0, 0.37);
-	backdrop-filter: blur(100px) saturate(110%);
-	-webkit-backdrop-filter: blur(100px);
-	transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-@buttonsHover: {
-	background-color: rgba(5, 5, 5, 0) !important;
-	border-radius: 12px;
-	box-shadow: 0 8px 15px rgba(0, 0, 0, 0.37);
-	backdrop-filter: blur(100px) saturate(110%);
-	-webkit-backdrop-filter: blur(100px);
-	transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-	transform: translateY(-4px);
-}
-
-@transparentButtons: {
-	border-radius: 12px !important;
-	box-shadow: 0 8px 15px rgba(0, 0, 0, 0.37);
-	backdrop-filter: blur(100px) saturate(110%);
-	-webkit-backdrop-filter: blur(100px);
-	transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-@buttonsFlat: {
-	border-radius: 12px !important;
-	backdrop-filter: blur(100px) saturate(110%);
-	-webkit-backdrop-filter: blur(100px);
-	transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-
-@transparentButtonsHover: {
-	border-radius: 12px;
-	box-shadow: 0 8px 15px rgba(0, 0, 0, 0.37);
-	-webkit-backdrop-filter: blur(100px);
-	backdrop-filter: blur(100px) saturate(110%);
-	transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-	transform: translateY(-4px);
-}
-
-
-@buttonsHoverWhite: {
-	background-color: rgba(5, 5, 5, 0) !important;
-	border-radius: 12px;
-	box-shadow: 0 8px 15px rgba(255, 255, 255, .37) !important;
-	backdrop-filter: blur(100px) saturate(110%);
-	-webkit-backdrop-filter: blur(100px);
-	transform: translateY(-4px);
-	transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, transform box-shadow 0.3s ease-in-out;
-}
-
-@menuItemHover: {
-	border: 1px solid rgba(0, 204, 255, 0.6);
-	background-color: rgba(5, 5, 5, 0.35) !important;
-	box-shadow: 0 0 10px 2px rgba(0, 204, 255, 0.3);
-	transform: translateY(-2px);
-	transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
-	border-radius: 12px;
-}
-
-@grainyTexture: {
-	content: "" !important;
-	position: absolute !important;
-	top: 0 !important;
-	left: 0 !important;
-	width: 100% !important;
-	height: 100% !important;
-	pointer-events: none !important;
-	z-index: 0 !important;
-	background: url("https://raw.githubusercontent.com/senshastic/sensha-betterer-todoist/refs/heads/main/assets/noise.svg") repeat !important;
-	opacity: 0.23 !important;
-}
-
-@backdrop: {
-	background-color: rgba(5, 5, 5, .18) !important;
-	border-radius: 12px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	backdrop-filter: blur(100px) saturate(110%);
-	-webkit-backdrop-filter: blur(100px);
-	transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-	padding: 5px;
-}
-
-@disappear: {
-	background: transparent !important;
-	border: 0px;
-	box-shadow: none;
-}
-
-@transparent: {
-	background: transparent;
-}
-
-@noise: {
-	content: "" !important;
-	background: url("https://raw.githubusercontent.com/senshastic/sensha-betterer-todoist/refs/heads/main/assets/noise.svg") repeat !important;
-	background-attachment: fixed;
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: fixed;
-	top: 0 !important;
-	left: 0 !important;
-	width: 100% !important;
-	height: 100% !important;
-	pointer-events: none !important;
-	z-index: -1 !important;
-	opacity: 0.23 !important;
-}
-
-
-@boxShadowHover: {
-	box-shadow: 0 0px 10px rgba(0, 204, 255, 0.6);
-	background-color: rgba(0, 81, 255, 0.1);
-}
-
-/* ANCHOR [ANIMATIONS] */ 
-
-@hoverChannelSlide: {
-	margin-left: 10px !important;
-	transition: margin-left 0.2s ease;
-	background-color: transparent;
-}
-
-/* Snake */ 
-
-@snakeTarget: {
-	position: relative;
-	padding: 16px;
-	border-radius: 18px;
-	background: rgba(0, 0, 0, 0.7);
-	z-index: 1;
-	overflow: hidden;
-}
-
-
-@snakeBefore: {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	border-radius: inherit;
-	padding: 3px;
-	background: linear-gradient(90deg, transparent 0%, transparent 40%, white 50%, transparent 60%, transparent 100%);
-	background-size: 200% 200%;
-	animation: smoothSnakeLine 6s linear infinite;
-	-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-	mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-	-webkit-mask-composite: xor;
-	mask-composite: exclude;
-	z-index: -1;
-}
-
-@keyframes smoothSnakeLine {
-	0% {
-		background-position: 0% 50%;
+	@buttonsHover: {
+		background-color: rgba(5, 5, 5, 0) !important;
+		border-radius: 12px;
+		box-shadow: 0 8px 15px rgba(0, 0, 0, 0.37);
+		backdrop-filter: blur(100px) saturate(110%);
+		-webkit-backdrop-filter: blur(100px);
+		transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+		transform: translateY(-4px);
 	}
-	100% {
-		background-position: 200% 50%;
+
+	@transparentButtons: {
+		border-radius: 12px !important;
+		box-shadow: 0 8px 15px rgba(0, 0, 0, 0.37);
+		backdrop-filter: blur(100px) saturate(110%);
+		-webkit-backdrop-filter: blur(100px);
+		transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 	}
-}
 
-/*!SECTION [SNESHLIB - End]*/
+	@buttonsFlat: {
+		border-radius: 12px !important;
+		backdrop-filter: blur(100px) saturate(110%);
+		-webkit-backdrop-filter: blur(100px);
+		transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+	}
 
+
+	@transparentButtonsHover: {
+		border-radius: 12px;
+		box-shadow: 0 8px 15px rgba(0, 0, 0, 0.37);
+		-webkit-backdrop-filter: blur(100px);
+		backdrop-filter: blur(100px) saturate(110%);
+		transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+		transform: translateY(-4px);
+	}
+
+
+	@buttonsHoverWhite: {
+		background-color: rgba(5, 5, 5, 0) !important;
+		border-radius: 12px;
+		box-shadow: 0 8px 15px rgba(255, 255, 255, .37) !important;
+		backdrop-filter: blur(100px) saturate(110%);
+		-webkit-backdrop-filter: blur(100px);
+		transform: translateY(-4px);
+		transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, transform box-shadow 0.3s ease-in-out;
+	}
+
+	@menuItemHover: {
+		border: 1px solid rgba(0, 204, 255, 0.6);
+		background-color: rgba(5, 5, 5, 0.35) !important;
+		box-shadow: 0 0 10px 2px rgba(0, 204, 255, 0.3);
+		transform: translateY(-2px);
+		transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+		border-radius: 12px;
+	}
+
+	@grainyTexture: {
+		content: "" !important;
+		position: absolute !important;
+		top: 0 !important;
+		left: 0 !important;
+		width: 100% !important;
+		height: 100% !important;
+		pointer-events: none !important;
+		z-index: 0 !important;
+		background: url("https://raw.githubusercontent.com/senshastic/sensha-betterer-todoist/refs/heads/main/assets/noise.svg") repeat !important;
+		opacity: 0.23 !important;
+	}
+
+	@backdrop: {
+		background-color: rgba(5, 5, 5, .18) !important;
+		border-radius: 12px;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		backdrop-filter: blur(100px) saturate(110%);
+		-webkit-backdrop-filter: blur(100px);
+		transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+		padding: 5px;
+	}
+
+	@disappear: {
+		background: transparent !important;
+		border: 0px;
+		box-shadow: none;
+	}
+
+	@transparent: {
+		background: transparent;
+	}
+
+	@noise: {
+		content: "" !important;
+		background: url("https://raw.githubusercontent.com/senshastic/sensha-betterer-todoist/refs/heads/main/assets/noise.svg") repeat !important;
+		background-attachment: fixed;
+		background-repeat: no-repeat;
+		background-size: cover;
+		position: fixed;
+		top: 0 !important;
+		left: 0 !important;
+		width: 100% !important;
+		height: 100% !important;
+		pointer-events: none !important;
+		z-index: -1 !important;
+		opacity: 0.23 !important;
+	}
+
+
+	@boxShadowHover: {
+		box-shadow: 0 0px 10px rgba(0, 204, 255, 0.6);
+		background-color: rgba(0, 81, 255, 0.1);
+	}
+
+	@textArea: {
+		border: 1.5px solid @creamColor !important;
+		background-color: transparent !important;
+	}
+
+	/* ANCHOR [ANIMATIONS] */
+	@hoverChannelSlide: {
+		margin-left: 10px !important;
+		transition: margin-left 0.2s ease;
+		background-color: transparent;
+	}
+
+	/* Snake */
+	@snakeTarget: {
+		position: relative;
+		padding: 16px;
+		border-radius: 18px;
+		background: rgba(0, 0, 0, 0.7);
+		z-index: 1;
+		overflow: hidden;
+	}
+
+
+	@snakeBefore: {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		border-radius: inherit;
+		padding: 3px;
+		background: linear-gradient(90deg, transparent 0%, transparent 40%, white 50%, transparent 60%, transparent 100%);
+		background-size: 200% 200%;
+		animation: smoothSnakeLine 6s linear infinite;
+		-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+		mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+		-webkit-mask-composite: xor;
+		mask-composite: exclude;
+		z-index: -1;
+	}
+
+	@keyframes smoothSnakeLine {
+		0% {
+			background-position: 0% 50%;
+		}
+		100% {
+			background-position: 200% 50%;
+		}
+	}
+
+	/*!SECTION [SNESHLIB - End]*/
 
 .gizmo-bot-avatar {
 	content: url('https://github.com/senshastic/sneshGPT/blob/main/assets/Hap.png?raw=true');
@@ -651,8 +653,36 @@ div.flex-shrink-0.overflow-x-hidden.bg-token-sidebar-surface-primary::after a:ho
 	color: rgba(255, 255, 255, 0.9);
 }
 
-/* Copy code button fix */
+/* ANCHOR [COPY CODE BUTTON] */
 pre>div>div.sticky>div.absolute{
 	border-radius: 12px !important;
+	border: 0px !important;
+	backdrop-filter: none !important;
+	background-color: rgba(5, 5, 5, 0) !important;
 }
+
+.absolute.bottom-0.right-2.flex.h-9.items-center{
+	border: 0px !important;
+	backdrop-filter: none !important;
+	background-color: rgba(5, 5, 5, 0) !important;
+}
+
+.absolute.bottom-0.right-2.flex.h-9.items-center:hover{
+	background-color: rgba(5, 5, 5, 0) !important;
+	border-radius: 12px;
+	box-shadow: 0 0px 5px rgba(0, 204, 255, 0.6);
+}
+
+
+/* ANCHOR [TOOLTIPS] */
+
+.bg-gray-950{
+	@backdrop();
+}
+
+.hover\:bg-token-main-surface-secondary:hover{
+	@disappear();
+}
+
+
 }
