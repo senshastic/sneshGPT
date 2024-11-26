@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           SneshGPT
 @namespace      github.com/openstyles/stylus
-@version        1.0.8
+@version        1.1.0
 @description    A new userstyle
 @author         sensha
 @preprocessor 	less 
@@ -14,675 +14,795 @@
 @var color   	gradcolor4 "Gradient Color 4" rgb(26, 58, 102)
 ==/UserStyle== */
 @-moz-document domain("chatgpt.com") {
-	
-	/*SECTION [SNESHLIB - Start] */
-	/*ANCHOR [VARIABLES]*/
-	@hap				: url('https://github.com/senshastic/sneshGPT/blob/main/assets/Hap.png?raw=true');
-	@borderRadius		: 12px;
-	@creamColor			: #d0b575;
-	@creamColorMuted	: #4f4733;
+
+    /*SECTION [SNESHLIB - Start] */
+    /*ANCHOR [VARIABLES]*/
+    @hap				: url('https://github.com/senshastic/sneshGPT/blob/main/assets/Hap.png?raw=true');
+    @borderRadius		: 12px;
+    @creamColor			: #d0b575;
+    @creamColorMuted	: #4f4733;
 
 
 
-	/*ANCHOR [DETACHED RULESETS] */
-	@gradientBackground: {
-		background: linear-gradient(109.6deg, @gradcolor1 0%, @gradcolor2 25%, @gradcolor3 50%, @gradcolor4 100%);
+    /*ANCHOR [DETACHED RULESETS] */
+    @gradientBackground: {
+        background: linear-gradient(109.6deg, @gradcolor1 0%, @gradcolor2 25%, @gradcolor3 50%, @gradcolor4 100%);
+    }
+
+    @gradientAnimation: {
+        0% {
+            background-position: 0% 0%;
+        }
+        50% {
+            background-position: 100% 100%;
+        }
+        100% {
+            background-position: 0% 0%;
+        }
+    }
+
+    @buttons: {
+        background-color: rgba(5, 5, 5, .18) !important;
+        border-radius: 12px !important;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.37);
+        backdrop-filter: blur(100px) saturate(110%);
+        -webkit-backdrop-filter: blur(100px);
+        transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    @buttonsHover: {
+        background-color: rgba(5, 5, 5, 0) !important;
+        border-radius: 12px;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.37);
+        backdrop-filter: blur(100px) saturate(110%);
+        -webkit-backdrop-filter: blur(100px);
+        transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        transform: translateY(-4px);
+    }
+
+    @transparentButtons: {
+        border-radius: 12px !important;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.37);
+        backdrop-filter: blur(100px) saturate(110%);
+        -webkit-backdrop-filter: blur(100px);
+        transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    @buttonsFlat: {
+        border-radius: 12px !important;
+        backdrop-filter: blur(100px) saturate(110%);
+        -webkit-backdrop-filter: blur(100px);
+        transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+
+    @transparentButtonsHover: {
+        border-radius: 12px;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.37);
+        -webkit-backdrop-filter: blur(100px);
+        backdrop-filter: blur(100px) saturate(110%);
+        transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        transform: translateY(-4px);
+    }
+
+
+    @buttonsHoverWhite: {
+        background-color: rgba(5, 5, 5, 0) !important;
+        border-radius: 12px;
+        box-shadow: 0 8px 15px rgba(255, 255, 255, .37) !important;
+        backdrop-filter: blur(100px) saturate(110%);
+        -webkit-backdrop-filter: blur(100px);
+        transform: translateY(-4px);
+        transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, transform box-shadow 0.3s ease-in-out;
+    }
+
+    @menuItemHover: {
+        border: 1px solid rgba(0, 204, 255, 0.6);
+        background-color: rgba(5, 5, 5, 0.35) !important;
+        box-shadow: 0 0 10px 2px rgba(0, 204, 255, 0.3);
+        transform: translateY(-2px);
+        transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+        border-radius: 12px;
+    }
+
+    @grainyTexture: {
+        content: "" !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        pointer-events: none !important;
+        z-index: 0 !important;
+        background: url("https://raw.githubusercontent.com/senshastic/sensha-betterer-todoist/refs/heads/main/assets/noise.svg") repeat !important;
+        opacity: 0.23 !important;
+    }
+
+    @backdrop: {
+        background-color: rgba(5, 5, 5, .18) !important;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(100px) saturate(110%);
+        -webkit-backdrop-filter: blur(100px);
+        transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        padding: 5px;
+    }
+
+    @disappear: {
+        background: transparent !important;
+        border: 0px;
+        box-shadow: none;
+    }
+
+    @transparent: {
+        background: transparent;
+    }
+
+    @noise: {
+        content: "" !important;
+        background: url("https://raw.githubusercontent.com/senshastic/sensha-betterer-todoist/refs/heads/main/assets/noise.svg") repeat !important;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: fixed;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        pointer-events: none !important;
+        z-index: -1 !important;
+        opacity: 0.23 !important;
+    }
+
+
+    @boxShadowHover: {
+        box-shadow: 0 0px 10px rgba(0, 204, 255, 0.6);
+        background-color: rgba(0, 81, 255, 0.1);
+    }
+
+    @textArea: {
+        border: 1.5px solid @creamColor !important;
+        background-color: transparent !important;
+    }
+
+    @doubleThingy: {
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(25px) saturate(200%) contrast(90%);
+        -webkit-backdrop-filter: blur(25px) saturate(200%) contrast(90%);
+        color: white;
+        z-index: 1000;
+        overflow-y: auto;
+        scrollbar-width: none;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+        transform: translateX(0);
+        opacity: 1;
+        pointer-events: auto;
+        border-radius: inherit;
+    }
+    /* ANCHOR [ANIMATIONS] */
+    @hoverChannelSlide: {
+        margin-left: 10px !important;
+        transition: margin-left 0.2s ease;
+        background-color: transparent;
+    }
+
+    /* Snake */
+    @snakeTarget: {
+        position: relative;
+        padding: 16px;
+        border-radius: 18px;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 1;
+        overflow: hidden;
+    }
+
+
+    @snakeBefore: {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: inherit;
+        padding: 3px;
+        background: linear-gradient(90deg, transparent 0%, transparent 40%, white 50%, transparent 60%, transparent 100%);
+        background-size: 200% 200%;
+        animation: smoothSnakeLine 6s linear infinite;
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        z-index: -1;
+    }
+
+    @keyframes smoothSnakeLine {
+        0% {
+            background-position: 0% 50%;
+        }
+        100% {
+            background-position: 200% 50%;
+        }
+    }
+
+    /*!SECTION [SNESHLIB - End]*/
+    .gizmo-bot-avatar {
+        content: url('https://github.com/senshastic/sneshGPT/blob/main/assets/Hap.png?raw=true');
+        width: 32px;
+        height: 32px;
+    }
+
+
+    div.gizmo-shadow-stroke.relative.flex.h-full.items-center.justify-center.rounded-full.bg-token-main-surface-primary.text-token-text-primary {
+        content: url('https://github.com/senshastic/sneshGPT/blob/main/assets/Hap.png?raw=true');
+        width: 30px;
+        height: 30px;
+        margin-top: -3px;
+    }
+
+    .rounded-sm {
+        content: url("https://github.com/senshastic/sneshGPT/blob/main/assets/senshasip_big.png?raw=true");
+        width: 32px;
+        /* Adjust the width as needed */
+        height: 32px;
+        /* Adjust the height as needed */
+    }
+
+
+
+    body when (@gradType =flouss) {
+        background: linear-gradient(109.6deg,
+        @gradcolor3 0%,
+        @gradcolor4 25%,
+        @gradcolor1 50%,
+        @gradcolor2 100%);
+        margin: 0;
+    }
+
+
+    body when (@gradType =animated) {
+        background: linear-gradient(109.6deg, @gradcolor3 13.4%, @gradcolor4 25%, @gradcolor1 70%, @gradcolor2 100.2%);
+        background-size: 400% 400%;
+        animation: gradientAnimation 20s ease infinite;
+    }
+
+
+    body when (@gradType =nouss) {
+        background-color: @gradcolor3 !important;
+    }
+
+    main when (@gradType =flouss) {
+        background: linear-gradient(109.6deg,
+        @gradcolor3 0%,
+        @gradcolor4 25%,
+        @gradcolor1 50%,
+        @gradcolor2 100%);
+        margin: 0;
+    }
+
+
+    main when (@gradType =animated) {
+        background: linear-gradient(109.6deg, @gradcolor3 13.4%, @gradcolor4 25%, @gradcolor1 70%, @gradcolor2 100.2%);
+        background-size: 400% 400%;
+        animation: gradientAnimation 20s ease infinite;
+    }
+
+
+    main when (@gradType =nouss) {
+        background-color: @gradcolor3 !important;
+    }
+
+    [data-testid="screen-sidebar"] when (@gradType =flouss) {
+        background: linear-gradient(109.6deg,
+        @gradcolor3 0%,
+        @gradcolor4 25%,
+        @gradcolor1 50%,
+        @gradcolor2 100%);
+        margin: 0;
+    }
+
+
+    [data-testid="screen-sidebar"] when (@gradType =animated) {
+        background: linear-gradient(109.6deg, @gradcolor3 13.4%, @gradcolor4 25%, @gradcolor1 70%, @gradcolor2 100.2%);
+        background-size: 400% 400%;
+        animation: gradientAnimation 20s ease infinite;
+    }
+
+
+    [data-testid="screen-sidebar"] when (@gradType =nouss) {
+        background-color: @gradcolor3 !important;
+    }
+
+    .bg-token-sidebar-surface-primary when (@gradType =flouss) {
+        background: linear-gradient(109.6deg,
+        @gradcolor3 0%,
+        @gradcolor4 25%,
+        @gradcolor1 50%,
+        @gradcolor2 100%);
+        margin: 0;
+    }
+
+
+    .bg-token-sidebar-surface-primary when (@gradType =animated) {
+        background: linear-gradient(109.6deg, @gradcolor3 13.4%, @gradcolor4 25%, @gradcolor1 70%, @gradcolor2 100.2%);
+        background-size: 400% 400%;
+        animation: gradientAnimation 20s ease infinite;
+    }
+
+
+    .bg-token-sidebar-surface-primary when (@gradType =nouss) {
+        background-color: @gradcolor3 !important;
+    }
+
+    @keyframes gradientAnimation {
+        0% {
+            background-position: 0% 0%;
+        }
+        50% {
+            background-position: 100% 100%;
+        }
+        100% {
+            background-position: 0% 0%;
+        }
+    }
+
+
+
+    main::before when (@grain =1) {
+        content: "" !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        pointer-events: none !important;
+        z-index: 0 !important;
+        background: url("https://grainy-gradients.vercel.app/noise.svg") repeat !important;
+        opacity: 0.23 !important;
+    }
+
+
+
+    .flex.h-9.items-center,
+    .flex.h-9.items-center:hover,
+    .group.flex.h-10.items-center.gap-2\.5.rounded-lg.bg-token-sidebar-surface-primary,
+    .group.flex.h-10.items-center.gap-2\.5.rounded-lg.bg-token-sidebar-surface-primary:hover {
+        @doubleThingy();
+    }
+
+    .group\/\sidebar > div,
+    .group\/\sidebar > div:hover{
+        @doubleThingy();
+        padding: 10px;
+        background-image: none !important;
+    }
+
+
+
+    /* Text at the bottom */
+    .min-h-4 {
+        position: relative !important;
+        color: transparent !important;
+        font-size: inherit;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .min-h-4::after {
+        content: 'ChatGPT just like me fr fr: never makes any mistakes.';
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #b1adad !important;
+        font-size: inherit;
+        text-align: center;
+        display: block;
+        width: 100%;
+    }
+    
+    .text-center.text-xs.text-token-text-secondary {
+        position: relative !important;
+        color: transparent !important;
+        font-size: inherit;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    .text-center.text-xs.text-token-text-secondary:hover{
+        @disappear();
+    }
+
+    .text-center.text-xs.text-token-text-secondary::after {
+        content: 'ChatGPT just like me fr fr: never makes any mistakes.';
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #b1adad !important;
+        font-size: inherit;
+        text-align: center;
+        display: block;
+        width: 100%;
+        font-size: 12px;
+    }
+
+
+
+    /* Targeting the specific message bubble element */
+    div.relative.max-w-\[70\%\].rounded-3xl {
+        position: relative;
+        padding: 16px;
+        border-radius: 18px;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 1;
+        overflow: hidden;
+        color: white;
+    }
+
+    /* Adding the animated glowing gradient border using a pseudo-element  div.relative.max-w-\[70\%\].rounded-3xl::before, */
+    div.relative.max-w-\[70\%\].rounded-3xl::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: inherit;
+        padding: 3px;
+        background: linear-gradient(90deg, transparent 0%, transparent 40%, white 50%, transparent 60%, transparent 100%);
+        background-size: 200% 200%;
+        animation: smoothSnakeLine 6s linear infinite;
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        z-index: -1;
+    }
+
+    /* Defining the keyframes for the gradient animation */
+    @keyframes smoothSnakeLine {
+        0% {
+            background-position: 0% 50%;
+        }
+        100% {
+            background-position: 200% 50%;
+        }
+    }
+
+
+
+    [role="menu"],
+    [role="dialog"],
+    .dark\:bg-token-main-surface-secondary:is(.dark *),
+    button.bg-token-main-surface-primary.rounded-full,
+    .radix-state-open\:bg-token-main-surface-secondary[data-state=open] {
+        background-color: rgba(5, 5, 5, 0.281) !important;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(100px) saturate(110%);
+        -webkit-backdrop-filter: blur(100px);
+        transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        padding: 5px;
+    }
+
+    @media (min-width: 768px) {
+        .md\:radix-state-active\:bg-token-main-surface-secondary[data-state=active] {
+            background-color: rgba(0, 0, 0, .281) !important;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(253, 253, 253, .08);
+            backdrop-filter: blur(100px) saturate(110%);
+            -webkit-backdrop-filter: blur(100px);
+            transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            padding: 5px;
+        }
+    }
+
+
+
+    [data-highlighted],
+    .dark\:radix-state-open\:bg-token-main-surface-secondary[data-state=open]:is(.dark *) {
+        border: 1px solid rgba(0, 204, 255, 0.6);
+        background-color: rgba(5, 5, 5, 0.35) !important;
+        box-shadow: 0 0 10px 2px rgba(0, 204, 255, 0.3);
+        transform: translateY(-2px);
+        transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+        border-radius: 12px;
+    }
+
+
+
+    @media (hover: hover) and (pointer: fine) {
+        .dark\:hover\:bg-token-main-surface-secondary:hover:is(.dark *) {
+            border: 1px solid rgba(0, 204, 255, 0.6);
+            background-color: rgba(5, 5, 5, 0.35) !important;
+            box-shadow: 0 0 10px 2px rgba(0, 204, 255, 0.3);
+            transform: translateY(-2px);
+            transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+            border-radius: 12px;
+        }
+    }
+
+
+
+
+    .relative.flex.w-40.flex-col.gap-2.rounded-2xl.border.border-token-border-light.px-3.pb-4.pt-3.text-start.align-top.text-\[15px\].shadow-xxs.transition:hover {
+        border: 1px solid rgba(0, 204, 255, 0.6);
+        background-color: rgba(5, 5, 5, 0.35) !important;
+        box-shadow: 0 0 10px 2px rgba(0, 204, 255, 0.3);
+        transform: translateY(-2px);
+        transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+        border-radius: 12px;
+    }
+
+    .relative.flex.items-center.gap-1\.5.rounded-full.border.px-3.py-2.text-start:hover {
+        @menuItemHover();
+    }
+
+
+    .no-draggable.group.relative.rounded-lg:hover {
+        background-color: rgba(5, 5, 5, 0) !important;
+    }
+
+    /* need to change this shit */
+    [data-testid="share-chat-button"] {
+        background-color: rgba(5, 5, 5, 0) !important;
+        border-radius: 12px;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.37);
+        backdrop-filter: blur(100px) saturate(110%);
+        -webkit-backdrop-filter: blur(100px);
+        transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+
+    .text-token-text-secondary:hover,
+    [aria-label="Close"]:hover,
+    [data-testid="share-chat-button"]:hover,
+    [aria-label="Next response"]:hover,
+    {
+        background-color: rgba(5, 5, 5, 0) !important;
+        border-radius: 12px;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.37);
+        backdrop-filter: blur(100px) saturate(110%);
+        -webkit-backdrop-filter: blur(100px);
+        transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+
+    .bg-token-sidebar-surface-secondary,
+    .from-token-sidebar-surface-secondary,
+    .bg-token-main-surface-primary,
+    .bg-token-main-surface-secondary,
+    .hover\:bg-token-sidebar-surface-secondary:hover {
+        background-color: rgba(5, 5, 5, 0);
+    }
+
+    .from-token-sidebar-surface-secondary {
+        --tw-gradient-from: rgba(5, 5, 5, 0) rgba(5, 5, 5, 0);
+    }
+
+    /* Explore GPTs page */
+    .dark\:md\:bg-transparent:is(.dark *):hover {
+        border: 1px solid rgba(0, 204, 255, 0.6);
+        background-color: rgba(5, 5, 5, 0.35) !important;
+        box-shadow: 0 0 10px 2px rgba(0, 204, 255, 0.3);
+        transform: translateY(-0.5px);
+        transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+        border-radius: 12px;
+    }
+
+    .dark\:bg-gray-700:is(.dark *) {
+        background-color: rgba(5, 5, 5, 0) !important;
+        border-radius: 12px;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.37);
+        backdrop-filter: blur(100px) saturate(110%);
+        -webkit-backdrop-filter: blur(100px);
+        transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .dark\:bg-gray-700:is(.dark *):hover {
+        background-color: rgba(5, 5, 5, 0) !important;
+        border-radius: 12px;
+        box-shadow: 0 8px 15px rgba(255, 255, 255, .37);
+        backdrop-filter: blur(100px) saturate(110%);
+        -webkit-backdrop-filter: blur(100px);
+        transform: translateY(-4px);
+        transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, transform box-shadow 0.3s ease-in-out;
+    }
+
+    /* search suggestions */
+    .absolute.top-\[calc\(100\%\-10px\)\].w-full.overflow-y-auto.rounded-lg.rounded-t-none.border.border-t-0.border-token-border-light.bg-token-main-surface-primary.px-3.py-2 {
+        background-color: rgba(5, 5, 5, 0.281) !important;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(100px) saturate(110%);
+        -webkit-backdrop-filter: blur(100px);
+        transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        padding: 5px;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        .btn-secondary:hover,
+        .btn-secondary {
+            background-color: rgba(5, 5, 5, 0.281) !important;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(100px) saturate(110%);
+            -webkit-backdrop-filter: blur(100px);
+            transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            padding: 5px;
+        }
+    }
+
+    .gizmo-link.cursor-pointer.group.mx-2.flex.items-center.gap-3.rounded-lg.px-3.py-2.hover\:bg-gray-50.dark\:hover\:bg-white\/10:hover,
+    .gizmo-link.cursor-pointer.group.flex.h-\[104px\].items-center.gap-2\.5.overflow-hidden.rounded-xl.px-1.py-4.hover\:bg-token-main-surface-secondary.md\:px-3.md\:py-4.lg\:px-3:hover {
+        border: 1px solid rgba(0, 204, 255, 0.6);
+        background-color: rgba(5, 5, 5, 0.35) !important;
+        box-shadow: 0 0 10px 2px rgba(0, 204, 255, 0.3);
+        transform: translateY(-2px);
+        transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+        border-radius: 12px;
+    }
+
+    /*button at the top*/
+    .btn.relative.btn-ghost:hover,
+    [aria-label="Previous response"]:hover {
+        background-color: rgba(5, 5, 5, 0) !important;
+        border-radius: 12px;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.37);
+        backdrop-filter: blur(100px) saturate(110%);
+        -webkit-backdrop-filter: blur(100px);
+        transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        transform: translateY(-2px);
+    }
+
+    /* sidebar styling */
+    div.flex-shrink-0.overflow-x-hidden.bg-token-sidebar-surface-primary,
+    body > div._parent_9n5rr_1 > div > nav > section {
+        top: 0;
+        left: 0;
+        width: 260px;
+        height: 100vh;
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(25px) saturate(200%) contrast(90%);
+        -webkit-backdrop-filter: blur(25px) saturate(200%) contrast(90%);
+        color: white;
+        z-index: 1000;
+        overflow-y: auto;
+        scrollbar-width: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+        transform: translateX(0);
+        opacity: 1;
+        pointer-events: auto;
+        padding-bottom: 20px;
+        position: relative;
+    }
+
+
+
+
+    div.flex-shrink-0.overflow-x-hidden.bg-token-sidebar-surface-primary::before,
+    body > div._parent_9n5rr_1 > div > nav > section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.1) 100%);
+        backdrop-filter: blur(15px) saturate(180%) contrast(90%);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        /* Top layer border */
+        box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.1);
+        pointer-events: none;
+        z-index: -1;
+    }
+
+
+    .no-draggable.group.relative.rounded-lg:hover {
+        margin-left: 10px !important;
+        transition: margin-left 0.2s ease;
+    }
+
+
+    .specific-bg-token-sidebar,
+    .absolute.bottom-0.top-0.to-transparent.ltr\:right-0.ltr\:bg-gradient-to-l.rtl\:left-0.rtl\:bg-gradient-to-r.from-token-sidebar-surface-primary.from-token-sidebar-surface-primary.can-hover\:group-hover\:from-token-sidebar-surface-secondary.w-8.from-0\%.can-hover\:group-hover\:w-10.can-hover\:group-hover\:from-60\% {
+        position: relative !important;
+        overflow: hidden !important;
+    }
+
+
+    div.flex-shrink-0.overflow-x-hidden.bg-token-sidebar-surface-primary::after {
+        content: 'SneshCorp. @1984. All rights reserved (to FallenStar).';
+        position: absolute;
+        bottom: 10px;
+        left: 15px;
+        font-size: 9px;
+        color: rgba(255, 255, 255, 0.7);
+        z-index: 1000;
+        pointer-events: none;
+    }
+
+
+    div.flex-shrink-0.overflow-x-hidden.bg-token-sidebar-surface-primary::after a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+    }
+
+    div.flex-shrink-0.overflow-x-hidden.bg-token-sidebar-surface-primary::after a:hover {
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* ANCHOR [COPY CODE BUTTON] */
+    pre > div > div.sticky > div.absolute {
+        border-radius: 12px !important;
+        border: 0px !important;
+        backdrop-filter: none !important;
+        background-color: rgba(5, 5, 5, 0) !important;
+    }
+
+    .absolute.bottom-0.right-2.flex.h-9.items-center {
+        border: 0px !important;
+        backdrop-filter: none !important;
+        background-color: rgba(5, 5, 5, 0) !important;
+    }
+
+    .absolute.bottom-0.right-2.flex.h-9.items-center:hover {
+        background-color: rgba(5, 5, 5, 0) !important;
+        border-radius: 12px;
+        box-shadow: 0 0px 5px rgba(0, 204, 255, 0.6);
+    }
+
+
+    /* ANCHOR [TOOLTIPS] */
+    .bg-gray-950 {
+        @backdrop();
+    }
+
+    .hover\:bg-token-main-surface-secondary:hover {
+        @disappear();
+    }
+
+    /* ANCHOR [NEW FUCKING WTF PAGE FOR CHROME] */
+    .bg-token-composer-surface,
+    ._primary_9ia9b_21,
+    ._screen_m6s0a_1 [slot=trailing]:before,
+    ._screen_m6s0a_1 [slot=trailing]:after,
+    [slot="leading"],
+    [data-testid="bar-container-default"],
+    [inline-flex]:hover,
+    ._label_1i27t_20:hover {
+        @disappear();
+    }
+
+
+    #composer-background {
+        @backdrop();
+    }
+
+    button:hover {
+        @buttonsHover();
+    }
+
+    [bar-type="primary"] {
+        border: none !important;
+    }
+
+    [role="menuitem"]:hover {
+        @menuItemHover();
+    }
+
+    [role="listbox"] {
+        @backdrop();
+    }
+    
+    
+    /*ANCHOR [ROOT] */
+	:root {
+	    --gray-600: transparent !important;
+		
 	}
-
-	@gradientAnimation: {
-		0% {
-			background-position: 0% 0%;
-		}
-		50% {
-			background-position: 100% 100%;
-		}
-		100% {
-			background-position: 0% 0%;
-		}
-	}
-
-	@buttons: {
-		background-color: rgba(5, 5, 5, .18) !important;
-		border-radius: 12px !important;
-		box-shadow: 0 8px 15px rgba(0, 0, 0, 0.37);
-		backdrop-filter: blur(100px) saturate(110%);
-		-webkit-backdrop-filter: blur(100px);
-		transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-	}
-
-	@buttonsHover: {
-		background-color: rgba(5, 5, 5, 0) !important;
-		border-radius: 12px;
-		box-shadow: 0 8px 15px rgba(0, 0, 0, 0.37);
-		backdrop-filter: blur(100px) saturate(110%);
-		-webkit-backdrop-filter: blur(100px);
-		transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-		transform: translateY(-4px);
-	}
-
-	@transparentButtons: {
-		border-radius: 12px !important;
-		box-shadow: 0 8px 15px rgba(0, 0, 0, 0.37);
-		backdrop-filter: blur(100px) saturate(110%);
-		-webkit-backdrop-filter: blur(100px);
-		transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-	}
-
-	@buttonsFlat: {
-		border-radius: 12px !important;
-		backdrop-filter: blur(100px) saturate(110%);
-		-webkit-backdrop-filter: blur(100px);
-		transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-	}
-
-
-	@transparentButtonsHover: {
-		border-radius: 12px;
-		box-shadow: 0 8px 15px rgba(0, 0, 0, 0.37);
-		-webkit-backdrop-filter: blur(100px);
-		backdrop-filter: blur(100px) saturate(110%);
-		transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-		transform: translateY(-4px);
-	}
-
-
-	@buttonsHoverWhite: {
-		background-color: rgba(5, 5, 5, 0) !important;
-		border-radius: 12px;
-		box-shadow: 0 8px 15px rgba(255, 255, 255, .37) !important;
-		backdrop-filter: blur(100px) saturate(110%);
-		-webkit-backdrop-filter: blur(100px);
-		transform: translateY(-4px);
-		transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, transform box-shadow 0.3s ease-in-out;
-	}
-
-	@menuItemHover: {
-		border: 1px solid rgba(0, 204, 255, 0.6);
-		background-color: rgba(5, 5, 5, 0.35) !important;
-		box-shadow: 0 0 10px 2px rgba(0, 204, 255, 0.3);
-		transform: translateY(-2px);
-		transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
-		border-radius: 12px;
-	}
-
-	@grainyTexture: {
-		content: "" !important;
-		position: absolute !important;
-		top: 0 !important;
-		left: 0 !important;
-		width: 100% !important;
-		height: 100% !important;
-		pointer-events: none !important;
-		z-index: 0 !important;
-		background: url("https://raw.githubusercontent.com/senshastic/sensha-betterer-todoist/refs/heads/main/assets/noise.svg") repeat !important;
-		opacity: 0.23 !important;
-	}
-
-	@backdrop: {
-		background-color: rgba(5, 5, 5, .18) !important;
-		border-radius: 12px;
-		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-		backdrop-filter: blur(100px) saturate(110%);
-		-webkit-backdrop-filter: blur(100px);
-		transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-		padding: 5px;
-	}
-
-	@disappear: {
-		background: transparent !important;
-		border: 0px;
-		box-shadow: none;
-	}
-
-	@transparent: {
-		background: transparent;
-	}
-
-	@noise: {
-		content: "" !important;
-		background: url("https://raw.githubusercontent.com/senshastic/sensha-betterer-todoist/refs/heads/main/assets/noise.svg") repeat !important;
-		background-attachment: fixed;
-		background-repeat: no-repeat;
-		background-size: cover;
-		position: fixed;
-		top: 0 !important;
-		left: 0 !important;
-		width: 100% !important;
-		height: 100% !important;
-		pointer-events: none !important;
-		z-index: -1 !important;
-		opacity: 0.23 !important;
-	}
-
-
-	@boxShadowHover: {
-		box-shadow: 0 0px 10px rgba(0, 204, 255, 0.6);
-		background-color: rgba(0, 81, 255, 0.1);
-	}
-
-	@textArea: {
-		border: 1.5px solid @creamColor !important;
-		background-color: transparent !important;
-	}
-
-	/* ANCHOR [ANIMATIONS] */
-	@hoverChannelSlide: {
-		margin-left: 10px !important;
-		transition: margin-left 0.2s ease;
-		background-color: transparent;
-	}
-
-	/* Snake */
-	@snakeTarget: {
-		position: relative;
-		padding: 16px;
-		border-radius: 18px;
-		background: rgba(0, 0, 0, 0.7);
-		z-index: 1;
-		overflow: hidden;
-	}
-
-
-	@snakeBefore: {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		border-radius: inherit;
-		padding: 3px;
-		background: linear-gradient(90deg, transparent 0%, transparent 40%, white 50%, transparent 60%, transparent 100%);
-		background-size: 200% 200%;
-		animation: smoothSnakeLine 6s linear infinite;
-		-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-		mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-		-webkit-mask-composite: xor;
-		mask-composite: exclude;
-		z-index: -1;
-	}
-
-	@keyframes smoothSnakeLine {
-		0% {
-			background-position: 0% 50%;
-		}
-		100% {
-			background-position: 200% 50%;
-		}
-	}
-
-	/*!SECTION [SNESHLIB - End]*/
-
-.gizmo-bot-avatar {
-	content: url('https://github.com/senshastic/sneshGPT/blob/main/assets/Hap.png?raw=true');
-	width: 32px;
-	height: 32px;
-}
-
-
-div.gizmo-shadow-stroke.relative.flex.h-full.items-center.justify-center.rounded-full.bg-token-main-surface-primary.text-token-text-primary {
-	content: url('https://github.com/senshastic/sneshGPT/blob/main/assets/Hap.png?raw=true');
-	width: 30px;
-	height: 30px;
-	margin-top: -3px;
-}
-
-.rounded-sm {
-	content: url("https://github.com/senshastic/sneshGPT/blob/main/assets/senshasip_big.png?raw=true");
-	width: 32px;
-	/* Adjust the width as needed */
-	height: 32px;
-	/* Adjust the height as needed */
-}
-
-
-
-main when (@gradType =flouss) {
-	background: linear-gradient(109.6deg,
-	@gradcolor3 0%,
-	@gradcolor4 25%,
-	@gradcolor1 50%,
-	@gradcolor2 100%);
-	margin: 0;
-}
-
-
-main when (@gradType =animated) {
-	background: linear-gradient(109.6deg, @gradcolor3 13.4%, @gradcolor4 25%, @gradcolor1 70%, @gradcolor2 100.2%);
-	background-size: 400% 400%;
-	animation: gradientAnimation 20s ease infinite;
-}
-
-
-main when (@gradType =nouss) {
-	background-color: @gradcolor3 !important;
-}
-
-.bg-token-sidebar-surface-primary when (@gradType =flouss) {
-	background: linear-gradient(109.6deg,
-	@gradcolor3 0%,
-	@gradcolor4 25%,
-	@gradcolor1 50%,
-	@gradcolor2 100%);
-	margin: 0;
-}
-
-
-.bg-token-sidebar-surface-primary when (@gradType =animated) {
-	background: linear-gradient(109.6deg, @gradcolor3 13.4%, @gradcolor4 25%, @gradcolor1 70%, @gradcolor2 100.2%);
-	background-size: 400% 400%;
-	animation: gradientAnimation 20s ease infinite;
-}
-
-
-.bg-token-sidebar-surface-primary when (@gradType =nouss) {
-	background-color: @gradcolor3 !important;
-}
-
-@keyframes gradientAnimation {
-	0% {
-		background-position: 0% 0%;
-	}
-	50% {
-		background-position: 100% 100%;
-	}
-	100% {
-		background-position: 0% 0%;
-	}
-}
-
-
-
-main::before when (@grain =1) {
-	content: "" !important;
-	position: absolute !important;
-	top: 0 !important;
-	left: 0 !important;
-	width: 100% !important;
-	height: 100% !important;
-	pointer-events: none !important;
-	z-index: 0 !important;
-	background: url("https://grainy-gradients.vercel.app/noise.svg") repeat !important;
-	opacity: 0.23 !important;
-}
-
-
-
-.flex.h-9.items-center,
-.flex.h-9.items-center:hover,
-.group.flex.h-10.items-center.gap-2\.5.rounded-lg.bg-token-sidebar-surface-primary,
-.group.flex.h-10.items-center.gap-2\.5.rounded-lg.bg-token-sidebar-surface-primary:hover {
-	background-color: rgba(255, 255, 255, 0.1);
-	backdrop-filter: blur(25px) saturate(200%) contrast(90%);
-	-webkit-backdrop-filter: blur(25px) saturate(200%) contrast(90%);
-	color: white;
-	z-index: 1000;
-	overflow-y: auto;
-	scrollbar-width: none;
-	border: 1px solid rgba(255, 255, 255, 0.2);
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
-	transform: translateX(0);
-	opacity: 1;
-	pointer-events: auto;
-	border-radius: inherit;
-}
-
-
-
-/* Text at the bottom */
-.min-h-4 {
-	position: relative !important;
-	color: transparent !important;
-	font-size: inherit;
-	display: flex !important;
-	align-items: center !important;
-	justify-content: center !important;
-}
-
-.min-h-4::after {
-	content: 'ChatGPT just like me fr fr: never makes any mistakes.';
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
-	color: #b1adad !important;
-	font-size: inherit;
-	text-align: center;
-	display: block;
-	width: 100%;
-}
-
-
-
-/* Targeting the specific message bubble element */
-div.relative.max-w-\[70\%\].rounded-3xl {
-	position: relative;
-	padding: 16px;
-	border-radius: 18px;
-	background: rgba(0, 0, 0, 0.7);
-	z-index: 1;
-	overflow: hidden;
-	color: white;
-}
-
-/* Adding the animated glowing gradient border using a pseudo-element  div.relative.max-w-\[70\%\].rounded-3xl::before, */
-div.relative.max-w-\[70\%\].rounded-3xl::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	border-radius: inherit;
-	padding: 3px;
-	background: linear-gradient(90deg, transparent 0%, transparent 40%, white 50%, transparent 60%, transparent 100%);
-	background-size: 200% 200%;
-	animation: smoothSnakeLine 6s linear infinite;
-	-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-	mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-	-webkit-mask-composite: xor;
-	mask-composite: exclude;
-	z-index: -1;
-}
-
-/* Defining the keyframes for the gradient animation */
-@keyframes smoothSnakeLine {
-	0% {
-		background-position: 0% 50%;
-	}
-	100% {
-		background-position: 200% 50%;
-	}
-}
-
-
-
-[role="menu"],
-[role="dialog"],
-.dark\:bg-token-main-surface-secondary:is(.dark *),
-button.bg-token-main-surface-primary.rounded-full,
-.radix-state-open\:bg-token-main-surface-secondary[data-state=open] {
-	background-color: rgba(5, 5, 5, 0.281) !important;
-	border-radius: 12px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	backdrop-filter: blur(100px) saturate(110%);
-	-webkit-backdrop-filter: blur(100px);
-	transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-	padding: 5px;
-}
-
-@media (min-width: 768px) {
-	.md\:radix-state-active\:bg-token-main-surface-secondary[data-state=active] {
-		background-color: rgba(0, 0, 0, .281) !important;
-		border-radius: 12px;
-		box-shadow: 0 4px 8px rgba(253, 253, 253, .08);
-		backdrop-filter: blur(100px) saturate(110%);
-		-webkit-backdrop-filter: blur(100px);
-		transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-		padding: 5px;
-	}
-}
-
-
-
-[data-highlighted],
-.dark\:radix-state-open\:bg-token-main-surface-secondary[data-state=open]:is(.dark *) {
-	border: 1px solid rgba(0, 204, 255, 0.6);
-	background-color: rgba(5, 5, 5, 0.35) !important;
-	box-shadow: 0 0 10px 2px rgba(0, 204, 255, 0.3);
-	transform: translateY(-2px);
-	transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
-	border-radius: 12px;
-}
-
-
-
-@media (hover: hover) and (pointer: fine) {
-	.dark\:hover\:bg-token-main-surface-secondary:hover:is(.dark *) {
-		border: 1px solid rgba(0, 204, 255, 0.6);
-		background-color: rgba(5, 5, 5, 0.35) !important;
-		box-shadow: 0 0 10px 2px rgba(0, 204, 255, 0.3);
-		transform: translateY(-2px);
-		transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
-		border-radius: 12px;
-	}
-}
-
-
-
-
-.relative.flex.w-40.flex-col.gap-2.rounded-2xl.border.border-token-border-light.px-3.pb-4.pt-3.text-start.align-top.text-\[15px\].shadow-xxs.transition:hover {
-	border: 1px solid rgba(0, 204, 255, 0.6);
-	background-color: rgba(5, 5, 5, 0.35) !important;
-	box-shadow: 0 0 10px 2px rgba(0, 204, 255, 0.3);
-	transform: translateY(-2px);
-	transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
-	border-radius: 12px;
-}
-
-.relative.flex.items-center.gap-1\.5.rounded-full.border.px-3.py-2.text-start:hover{
-	@menuItemHover();
-}
-
-
-.no-draggable.group.relative.rounded-lg:hover {
-	background-color: rgba(5, 5, 5, 0) !important;
-}
-
-/* need to change this shit */
-[data-testid="share-chat-button"] {
-	background-color: rgba(5, 5, 5, 0) !important;
-	border-radius: 12px;
-	box-shadow: 0 8px 15px rgba(0, 0, 0, 0.37);
-	backdrop-filter: blur(100px) saturate(110%);
-	-webkit-backdrop-filter: blur(100px);
-	transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-
-.text-token-text-secondary:hover,
-[aria-label="Close"]:hover,
-[data-testid="share-chat-button"]:hover,
-[aria-label="Next response"]:hover,
-{
-	background-color: rgba(5, 5, 5, 0) !important;
-	border-radius: 12px;
-	box-shadow: 0 8px 15px rgba(0, 0, 0, 0.37);
-	backdrop-filter: blur(100px) saturate(110%);
-	-webkit-backdrop-filter: blur(100px);
-	transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-
-.bg-token-sidebar-surface-secondary,
-.from-token-sidebar-surface-secondary,
-.bg-token-main-surface-primary,
-.bg-token-main-surface-secondary,
-.hover\:bg-token-sidebar-surface-secondary:hover {
-	background-color: rgba(5, 5, 5, 0);
-}
-
-.from-token-sidebar-surface-secondary {
-	--tw-gradient-from: rgba(5, 5, 5, 0) rgba(5, 5, 5, 0);
-}
-
-/* Explore GPTs page */
-.dark\:md\:bg-transparent:is(.dark *):hover {
-	border: 1px solid rgba(0, 204, 255, 0.6);
-	background-color: rgba(5, 5, 5, 0.35) !important;
-	box-shadow: 0 0 10px 2px rgba(0, 204, 255, 0.3);
-	transform: translateY(-0.5px);
-	transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
-	border-radius: 12px;
-}
-
-.dark\:bg-gray-700:is(.dark *) {
-	background-color: rgba(5, 5, 5, 0) !important;
-	border-radius: 12px;
-	box-shadow: 0 8px 15px rgba(0, 0, 0, 0.37);
-	backdrop-filter: blur(100px) saturate(110%);
-	-webkit-backdrop-filter: blur(100px);
-	transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.dark\:bg-gray-700:is(.dark *):hover {
-	background-color: rgba(5, 5, 5, 0) !important;
-	border-radius: 12px;
-	box-shadow: 0 8px 15px rgba(255, 255, 255, .37);
-	backdrop-filter: blur(100px) saturate(110%);
-	-webkit-backdrop-filter: blur(100px);
-	transform: translateY(-4px);
-	transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, transform box-shadow 0.3s ease-in-out;
-}
-
-/* search suggestions */
-.absolute.top-\[calc\(100\%\-10px\)\].w-full.overflow-y-auto.rounded-lg.rounded-t-none.border.border-t-0.border-token-border-light.bg-token-main-surface-primary.px-3.py-2 {
-	background-color: rgba(5, 5, 5, 0.281) !important;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	backdrop-filter: blur(100px) saturate(110%);
-	-webkit-backdrop-filter: blur(100px);
-	transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-	padding: 5px;
-}
-
-@media (hover: hover) and (pointer: fine) {
-	.btn-secondary:hover,
-	.btn-secondary {
-		background-color: rgba(5, 5, 5, 0.281) !important;
-		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-		backdrop-filter: blur(100px) saturate(110%);
-		-webkit-backdrop-filter: blur(100px);
-		transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-		padding: 5px;
-	}
-}
-
-.gizmo-link.cursor-pointer.group.mx-2.flex.items-center.gap-3.rounded-lg.px-3.py-2.hover\:bg-gray-50.dark\:hover\:bg-white\/10:hover,
-.gizmo-link.cursor-pointer.group.flex.h-\[104px\].items-center.gap-2\.5.overflow-hidden.rounded-xl.px-1.py-4.hover\:bg-token-main-surface-secondary.md\:px-3.md\:py-4.lg\:px-3:hover {
-	border: 1px solid rgba(0, 204, 255, 0.6);
-	background-color: rgba(5, 5, 5, 0.35) !important;
-	box-shadow: 0 0 10px 2px rgba(0, 204, 255, 0.3);
-	transform: translateY(-2px);
-	transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
-	border-radius: 12px;
-}
-
-/*button at the top*/
-.btn.relative.btn-ghost:hover,
-[aria-label="Previous response"]:hover {
-	background-color: rgba(5, 5, 5, 0) !important;
-	border-radius: 12px;
-	box-shadow: 0 8px 15px rgba(0, 0, 0, 0.37);
-	backdrop-filter: blur(100px) saturate(110%);
-	-webkit-backdrop-filter: blur(100px);
-	transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-	transform: translateY(-2px);
-}
-
-/* sidebar styling */
-div.flex-shrink-0.overflow-x-hidden.bg-token-sidebar-surface-primary {
-	top: 0;
-	left: 0;
-	width: 260px;
-	height: 100vh;
-	background-color: rgba(255, 255, 255, 0.1);
-	backdrop-filter: blur(25px) saturate(200%) contrast(90%);
-	-webkit-backdrop-filter: blur(25px) saturate(200%) contrast(90%);
-	color: white;
-	z-index: 1000;
-	overflow-y: auto;
-	scrollbar-width: none;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
-	transform: translateX(0);
-	opacity: 1;
-	pointer-events: auto;
-	padding-bottom: 20px;
-	position: relative;
-}
-
-
-div.flex-shrink-0.overflow-x-hidden.bg-token-sidebar-surface-primary::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.1) 100%);
-	backdrop-filter: blur(15px) saturate(180%) contrast(90%);
-	border: 1px solid rgba(255, 255, 255, 0.1);
-	/* Top layer border */
-	box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.1);
-	pointer-events: none;
-	z-index: -1;
-}
-
-
-.no-draggable.group.relative.rounded-lg:hover {
-	margin-left: 10px !important;
-	transition: margin-left 0.2s ease;
-}
-
-
-.specific-bg-token-sidebar,
-.absolute.bottom-0.top-0.to-transparent.ltr\:right-0.ltr\:bg-gradient-to-l.rtl\:left-0.rtl\:bg-gradient-to-r.from-token-sidebar-surface-primary.from-token-sidebar-surface-primary.can-hover\:group-hover\:from-token-sidebar-surface-secondary.w-8.from-0\%.can-hover\:group-hover\:w-10.can-hover\:group-hover\:from-60\% {
-	position: relative !important;
-	overflow: hidden !important;
-}
-
-
-div.flex-shrink-0.overflow-x-hidden.bg-token-sidebar-surface-primary::after {
-	content: 'SneshCorp. @1984. All rights reserved (to FallenStar).';
-	position: absolute;
-	bottom: 10px;
-	left: 15px;
-	font-size: 9px;
-	color: rgba(255, 255, 255, 0.7);
-	z-index: 1000;
-	pointer-events: none;
-}
-
-
-div.flex-shrink-0.overflow-x-hidden.bg-token-sidebar-surface-primary::after a {
-	color: rgba(255, 255, 255, 0.7);
-	text-decoration: none;
-}
-
-div.flex-shrink-0.overflow-x-hidden.bg-token-sidebar-surface-primary::after a:hover {
-	color: rgba(255, 255, 255, 0.9);
-}
-
-/* ANCHOR [COPY CODE BUTTON] */
-pre>div>div.sticky>div.absolute{
-	border-radius: 12px !important;
-	border: 0px !important;
-	backdrop-filter: none !important;
-	background-color: rgba(5, 5, 5, 0) !important;
-}
-
-.absolute.bottom-0.right-2.flex.h-9.items-center{
-	border: 0px !important;
-	backdrop-filter: none !important;
-	background-color: rgba(5, 5, 5, 0) !important;
-}
-
-.absolute.bottom-0.right-2.flex.h-9.items-center:hover{
-	background-color: rgba(5, 5, 5, 0) !important;
-	border-radius: 12px;
-	box-shadow: 0 0px 5px rgba(0, 204, 255, 0.6);
-}
-
-
-/* ANCHOR [TOOLTIPS] */
-
-.bg-gray-950{
-	@backdrop();
-}
-
-.hover\:bg-token-main-surface-secondary:hover{
-	@disappear();
-}
-
-
+    
+    
 }
