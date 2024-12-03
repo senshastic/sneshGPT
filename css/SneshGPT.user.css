@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           SneshGPT
 @namespace      github.com/openstyles/stylus
-@version        1.1.0
+@version        1.1.2
 @description    A new userstyle
 @author         sensha
 @preprocessor 	less 
@@ -128,6 +128,14 @@
         padding: 5px;
     }
 
+    @backdropSimpler: {
+        background-color: rgba(5, 5, 5, .18) !important;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(100px) saturate(110%);
+        -webkit-backdrop-filter: blur(100px);
+        transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
     @disappear: {
         background: transparent !important;
         border: 0px;
@@ -181,6 +189,7 @@
         pointer-events: auto;
         border-radius: inherit;
     }
+
     /* ANCHOR [ANIMATIONS] */
     @hoverChannelSlide: {
         margin-left: 10px !important;
@@ -218,12 +227,672 @@
         z-index: -1;
     }
 
+    @snakeFastBefore: {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        padding: 3px;
+        background: conic-gradient(from var(--start-angle) at 50% 50%, var(--radial-gradient-gold));
+        animation: smoothSnakeSpin 4s linear infinite;
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        pointer-events: none;
+        z-index: -1;
+    }
+
     @keyframes smoothSnakeLine {
         0% {
             background-position: 0% 50%;
         }
         100% {
             background-position: 200% 50%;
+        }
+    }
+
+    @keyframes smoothSnakeSpin {
+        0.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 0.0deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        0.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 1.8deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        1.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 3.6deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        1.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 5.4deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        2.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 7.2deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        2.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 9.0deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        3.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 10.8deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        3.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 12.6deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        4.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 14.4deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        4.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 16.2deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        5.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 18.0deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        5.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 19.8deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        6.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 21.6deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        6.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 23.400000000000002deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        7.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 25.2deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        7.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 27.0deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        8.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 28.8deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        8.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 30.6deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        9.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 32.4deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        9.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 34.2deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        10.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 36.0deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        10.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 37.800000000000004deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        11.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 39.6deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        11.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 41.4deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        12.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 43.2deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        12.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 45.0deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        13.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 46.800000000000004deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        13.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 48.6deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        14.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 50.4deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        14.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 52.2deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        15.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 54.0deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        15.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 55.800000000000004deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        16.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 57.6deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        16.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 59.4deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        17.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 61.2deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        17.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 63.0deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        18.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 64.8deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        18.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 66.60000000000001deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        19.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 68.4deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        19.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 70.2deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        20.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 72.0deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        20.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 73.8deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        21.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 75.60000000000001deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        21.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 77.4deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        22.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 79.2deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        22.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 81.0deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        23.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 82.8deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        23.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 84.60000000000001deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        24.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 86.4deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        24.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 88.2deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        25.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 90.0deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        25.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 91.8deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        26.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 93.60000000000001deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        26.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 95.4deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        27.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 97.2deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        27.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 99.0deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        28.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 100.8deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        28.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 102.60000000000001deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        29.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 104.4deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        29.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 106.2deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        30.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 108.0deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        30.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 109.8deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        31.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 111.60000000000001deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        31.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 113.4deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        32.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 115.2deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        32.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 117.0deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        33.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 118.8deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        33.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 120.60000000000001deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        34.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 122.4deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        34.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 124.2deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        35.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 126.0deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        35.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 127.8deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        36.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 129.6deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        36.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 131.4deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        37.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 133.20000000000002deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        37.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 135.0deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        38.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 136.8deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        38.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 138.6deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        39.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 140.4deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        39.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 142.20000000000002deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        40.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 144.0deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        40.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 145.8deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        41.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 147.6deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        41.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 149.4deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        42.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 151.20000000000002deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        42.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 153.0deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        43.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 154.8deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        43.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 156.6deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        44.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 158.4deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        44.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 160.20000000000002deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        45.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 162.0deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        45.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 163.8deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        46.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 165.6deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        46.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 167.4deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        47.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 169.20000000000002deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        47.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 171.0deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        48.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 172.8deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        48.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 174.6deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        49.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 176.4deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        49.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 178.20000000000002deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        50.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 180.0deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        50.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 181.8deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        51.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 183.6deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        51.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 185.4deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        52.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 187.20000000000002deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        52.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 189.0deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        53.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 190.8deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        53.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 192.6deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        54.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 194.4deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        54.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 196.20000000000002deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        55.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 198.0deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        55.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 199.8deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        56.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 201.6deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        56.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 203.4deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        57.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 205.20000000000002deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        57.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 207.0deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        58.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 208.8deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        58.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 210.6deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        59.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 212.4deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        59.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 214.20000000000002deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        60.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 216.0deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        60.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 217.8deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        61.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 219.6deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        61.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 221.4deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        62.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 223.20000000000002deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        62.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 225.0deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        63.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 226.8deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        63.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 228.6deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        64.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 230.4deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        64.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 232.20000000000002deg) at 50% 50%, var(--radial-gradient-gold));
+        }
+        65.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 234.0deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        65.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 235.8deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        66.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 237.6deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        66.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 239.4deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        67.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 241.20000000000002deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        67.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 243.0deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        68.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 244.8deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        68.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 246.6deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        69.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 248.4deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        69.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 250.20000000000002deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        70.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 252.0deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        70.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 253.8deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        71.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 255.6deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        71.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 257.40000000000003deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        72.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 259.2deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        72.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 261.0deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        73.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 262.8deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        73.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 264.6deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        74.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 266.40000000000003deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        74.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 268.2deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        75.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 270.0deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        75.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 271.8deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        76.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 273.6deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        76.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 275.40000000000003deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        77.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 277.2deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        77.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 279.0deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        78.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 280.8deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        78.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 282.6deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        79.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 284.40000000000003deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        79.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 286.2deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        80.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 288.0deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        80.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 289.8deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        81.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 291.6deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        81.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 293.40000000000003deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        82.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 295.2deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        82.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 297.0deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        83.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 298.8deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        83.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 300.6deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        84.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 302.40000000000003deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        84.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 304.2deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        85.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 306.0deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        85.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 307.8deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        86.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 309.6deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        86.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 311.40000000000003deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        87.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 313.2deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        87.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 315.0deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        88.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 316.8deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        88.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 318.6deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        89.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 320.40000000000003deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        89.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 322.2deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        90.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 324.0deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        90.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 325.8deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        91.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 327.6deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        91.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 329.40000000000003deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        92.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 331.2deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        92.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 333.0deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        93.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 334.8deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        93.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 336.6deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        94.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 338.40000000000003deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        94.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 340.2deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        95.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 342.0deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        95.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 343.8deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        96.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 345.6deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        96.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 347.40000000000003deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        97.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 349.2deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        97.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 351.0deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        98.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 352.8deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        98.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 354.6deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        99.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 356.40000000000003deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        99.5% {
+            background: conic-gradient(from calc(var(--start-angle) + 358.2deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+        100.0% {
+            background: conic-gradient(from calc(var(--start-angle) + 360.0deg) at 50% 50%, var(--radial-gradient-blue));
+        }
+    }
+
+    @animateBouncyDown: {
+        background-color: rgba(0, 14, 58, 0) !important;
+        border-radius: 12px;
+        box-shadow: 0 0px 10px rgba(255, 255, 255, 0.781);
+        backdrop-filter: blur(100px) saturate(110%);
+        -webkit-backdrop-filter: blur(100px);
+        transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        animation: animateDownBouncy 1.5s linear;
+    }
+
+    @keyframes animateDownBouncy {
+        0% {
+            transform: translateY(-20px);
+            opacity: 0;
+            filter: blur(4px);
+        }
+        30% {
+            transform: translateY(10px);
+            opacity: 0.7;
+            filter: blur(2px);
+        }
+        50% {
+            transform: translateY(-5px);
+            opacity: 1;
+            filter: blur(0);
+        }
+        80% {
+            transform: translateY(0);
+            opacity: 1;
+            filter: blur(0);
+        }
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+            filter: blur(0);
         }
     }
 
@@ -373,7 +1042,7 @@
     }
 
     .group\/\sidebar > div,
-    .group\/\sidebar > div:hover{
+    .group\/\sidebar > div:hover {
         @doubleThingy();
         padding: 10px;
         background-image: none !important;
@@ -391,18 +1060,6 @@
         justify-content: center !important;
     }
 
-    .min-h-4::after {
-        content: 'ChatGPT just like me fr fr: never makes any mistakes.';
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        color: #b1adad !important;
-        font-size: inherit;
-        text-align: center;
-        display: block;
-        width: 100%;
-    }
-    
     .text-center.text-xs.text-token-text-secondary {
         position: relative !important;
         color: transparent !important;
@@ -411,8 +1068,8 @@
         align-items: center !important;
         justify-content: center !important;
     }
-    
-    .text-center.text-xs.text-token-text-secondary:hover{
+
+    .text-center.text-xs.text-token-text-secondary:hover {
         @disappear();
     }
 
@@ -446,19 +1103,16 @@
     div.relative.max-w-\[70\%\].rounded-3xl::before {
         content: '';
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        inset: 0;
         border-radius: inherit;
         padding: 3px;
-        background: linear-gradient(90deg, transparent 0%, transparent 40%, white 50%, transparent 60%, transparent 100%);
-        background-size: 200% 200%;
-        animation: smoothSnakeLine 6s linear infinite;
-        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        background: conic-gradient(from var(--start-angle) at 50% 50%, var(--radial-gradient-gold));
+        animation: smoothSnakeSpin 4s linear infinite;
         mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
         -webkit-mask-composite: xor;
         mask-composite: exclude;
+        pointer-events: none;
         z-index: -1;
     }
 
@@ -796,13 +1450,16 @@
     [role="listbox"] {
         @backdrop();
     }
-    
-    
+
+
     /*ANCHOR [ROOT] */
-	:root {
-	    --gray-600: transparent !important;
-		
-	}
+    :root {
+        --gray-600: transparent !important;
+    }
     
-    
+    :root {
+  --start-angle: 0deg;
+  --radial-gradient-gold: #f2a36600 25deg, #ad0057 43.4deg, #fbe3d100 60deg, #101419cc 100deg, #fff0 310deg, #101419cc 408.4deg;
+  --radial-gradient-blue: #f2a36600 25deg, #0056ad 43.4deg, #fbe3d100 60deg, #101419cc 100deg, #fff0 310deg, #101419cc 408.4deg;
+}
 }
