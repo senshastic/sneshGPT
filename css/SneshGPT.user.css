@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           SneshGPT
 @namespace      github.com/openstyles/stylus
-@version        1.1.2
+@version        1.1.3
 @description    A new userstyle
 @author         sensha
 @preprocessor 	less 
@@ -1089,7 +1089,7 @@
 
 
     /* Targeting the specific message bubble element */
-    div.relative.max-w-\[70\%\].rounded-3xl {
+    .bg-token-message-surface {
         position: relative;
         padding: 16px;
         border-radius: 18px;
@@ -1100,7 +1100,7 @@
     }
 
     /* Adding the animated glowing gradient border using a pseudo-element  div.relative.max-w-\[70\%\].rounded-3xl::before, */
-    div.relative.max-w-\[70\%\].rounded-3xl::before {
+    .bg-token-message-surface::before {
         content: '';
         position: absolute;
         inset: 0;
