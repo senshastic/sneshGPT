@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           SneshGPT
 @namespace      github.com/openstyles/stylus
-@version        1.1.3
+@version        1.1.4
 @description    A new userstyle
 @author         sensha
 @preprocessor 	less 
@@ -1043,7 +1043,6 @@
 
     .group\/\sidebar > div,
     .group\/\sidebar > div:hover {
-        @doubleThingy();
         padding: 10px;
         background-image: none !important;
     }
@@ -1232,6 +1231,10 @@
     .hover\:bg-token-sidebar-surface-secondary:hover {
         background-color: rgba(5, 5, 5, 0);
     }
+    
+    .bg-token-main-surface-primary{
+        @backdrop();
+    }
 
     .from-token-sidebar-surface-secondary {
         --tw-gradient-from: rgba(5, 5, 5, 0) rgba(5, 5, 5, 0);
@@ -1418,6 +1421,34 @@
         @disappear();
     }
 
+    /*ANCHOR [SETTINGS] */
+    
+    .overflow-y-auto.p-4{
+        @backdrop();
+    }
+    
+    .btn-danger-outline{
+        background: transparent !important;
+    }
+    
+    .dark\:bg-orange-800:is(.dark *){
+         background: @creamColor;
+    }
+    
+    .dark\:from-gray-800:is(.dark *){
+        background: transparent !important;
+    }
+    
+    /* ANCHOR [FIX SIDEBAR DEC 2024] */ 
+    
+    .from-\[var\(--item-background-color\)\] {
+    --tw-gradient-from: transparent !important;
+    }
+    
+    .bg-\[var\(--item-background-color\)\]{
+        background: transparent !important;
+    }
+    
     /* ANCHOR [NEW FUCKING WTF PAGE FOR CHROME] */
     .bg-token-composer-surface,
     ._primary_9ia9b_21,
