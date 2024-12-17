@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           SneshGPT
 @namespace      github.com/openstyles/stylus
-@version        1.1.4
+@version        1.1.5
 @description    A new userstyle
 @author         sensha
 @preprocessor 	less 
@@ -1447,6 +1447,26 @@
     
     .bg-\[var\(--item-background-color\)\]{
         background: transparent !important;
+    }
+    
+    .btn.relative.btn-primary{
+        @backdrop();
+        color: @creamColor;
+    }
+    
+    
+    .block > .flex.justify-start.pt-2.h-full,
+    .ͼ1p, .cm-gutters {
+        @backdropSimpler();
+    }
+    
+    .absolute.bottom-0.z-20.h-24.w-full.transition-colors,
+    ._codemirror_cto5h_1 .cm-activeLineGutter {
+        @disappear();
+    }
+    
+    .flex-item.my-1.flex.min-w-40.cursor-pointer.items-center.overflow-hidden.text-clip.whitespace-nowrap.rounded-2xl.py-2.pl-4.pr-2.font-medium.transition-colors:hover{
+        @buttonsHover();
     }
     
     /* ANCHOR [NEW FUCKING WTF PAGE FOR CHROME] */
