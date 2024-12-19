@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           SneshGPT
 @namespace      github.com/openstyles/stylus
-@version        1.1.5
+@version        1.1.6
 @description    A new userstyle
 @author         sensha
 @preprocessor 	less 
@@ -1456,12 +1456,14 @@
     
     
     .block > .flex.justify-start.pt-2.h-full,
-    .ͼ1p, .cm-gutters {
+    .ͼ1p, .cm-gutters,
+    ._codemirror_cto5h_1 .cm-activeLineGutter {
         @backdropSimpler();
     }
     
-    .absolute.bottom-0.z-20.h-24.w-full.transition-colors,
-    ._codemirror_cto5h_1 .cm-activeLineGutter {
+    
+    
+    .absolute.bottom-0.z-20.h-24.w-full.transition-colors {
         @disappear();
     }
     
